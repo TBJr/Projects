@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <title>TBJ - Detect Browser</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <h2>Browser:</h2>
+            <div class="logos">
+                <img class="chrome" src="assets/logo/chrome.png" alt="chrome" title="Google Chrome">
+                <img class="firefox" src="assets/logo/firefox.png" alt="firefox" title="Mozilla Firefox">
+                <img class="edge" src="assets/logo/edge.png" alt="edge" title="Microsoft Edge">
+                <img class="opera" src="assets/logo/opera.png" alt="opera" title="Opera">
+                <img class="safari" src="assets/logo/safari.png" alt="safari" title="Apple Safari">
+            </div>
+        </div>
+
+        <script>
+            let userAgent = navigator.userAgent;
+            let browser;
+            if(userAgent.match(/edg/i)){
+                browser = "edge";
+            }else if(userAgent.match(/firefox|fxios/i)){
+                browser = "firefox";
+            }else if(userAgent.match(/opr\//i)){
+                browser = "opera";
+            }else if(userAgent.match(/chrome|chromium|crios/i)){
+                browser = "chrome";
+            }else if(userAgent.match(/safari/i)){
+                browser = "safari";
+            }else{
+                alert("Other browser");
+            }
+
+            const logo = document.querySelector(`.logos .${browser}`);
+            if(logo){
+                logo.style.opacity = "1";
+            }
+        </script>
+        
+        <script src="js/script.js"></script>
+    </body>
+</html>
+
+
+  <body>
+    
+
+    
+
+  </body>
+</html>
