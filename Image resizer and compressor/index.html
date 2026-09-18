@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--
+    Author: Thomas Brown
+    Website: https://thomasbrown.app
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resize and convert an image in your browser, then download the result.">
+    <title>Image Resizer and Compressor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to image tool</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <span class="site-name">Image Resizer</span>
+            <a href="../index.html">All projects <span aria-hidden="true">↗</span></a>
+        </div>
+    </header>
+
+    <main id="main" class="container">
+        <section class="intro" aria-labelledby="page-title">
+            <div>
+                <p class="eyebrow">A browser-only image tool</p>
+                <h1 id="page-title">Make an image fit.</h1>
+                <p class="lead">Set a maximum width and height, choose an output format, and download the result. Your image stays in this browser.</p>
+            </div>
+            <div class="intro-steps" aria-label="How it works">
+                <p><span>01</span> Choose an image</p>
+                <p><span>02</span> Set the output</p>
+                <p><span>03</span> Download the result</p>
+            </div>
+        </section>
+
+        <section class="panel upload-panel" aria-labelledby="upload-title">
+            <div class="panel-heading">
+                <div>
+                    <p class="eyebrow">Start here</p>
+                    <h2 id="upload-title">Choose an image</h2>
+                </div>
+                <p>PNG, JPEG, or WebP · Up to 25 MB</p>
+            </div>
+            <div class="drop-zone" id="drop-zone">
+                <span class="drop-icon" aria-hidden="true">↓</span>
+                <p>Drop an image here</p>
+                <span class="drop-or">or</span>
+                <input class="visually-hidden" id="image-input" type="file" accept="image/png,image/jpeg,image/webp" aria-describedby="upload-help">
+                <label class="select-button" for="image-input">Browse files</label>
+            </div>
+            <p class="helper" id="upload-help">Images are processed on your device. Nothing is uploaded. Animated images export as one frame, and original metadata is not kept.</p>
+            <noscript><p class="no-script">Turn on JavaScript to resize an image.</p></noscript>
+        </section>
+
+        <p class="status-message" id="status-message" role="status" aria-live="polite">Choose an image to begin.</p>
+
+        <div class="workspace" id="workspace" hidden>
+            <form class="panel controls-panel" id="image-form">
+                <p class="eyebrow">Output settings</p>
+                <h2>Size and format</h2>
+                <p class="helper">The image keeps its proportions and is never enlarged. Large output is limited to 16 megapixels.</p>
+
+                <div class="field-grid">
+                    <label for="max-width">Maximum width <span>px</span>
+                        <input id="max-width" name="max-width" type="number" min="1" max="8192" step="1" required>
+                    </label>
+                    <label for="max-height">Maximum height <span>px</span>
+                        <input id="max-height" name="max-height" type="number" min="1" max="8192" step="1" required>
+                    </label>
+                </div>
+
+                <label class="select-field" for="output-format">Output format
+                    <select id="output-format" name="output-format">
+                        <option value="image/jpeg">JPEG</option>
+                        <option value="image/png">PNG</option>
+                        <option value="image/webp">WebP</option>
+                    </select>
+                </label>
+
+                <div class="quality-field" id="quality-field">
+                    <label for="output-quality">Quality <output id="quality-value" for="output-quality">82%</output></label>
+                    <input id="output-quality" name="output-quality" type="range" min="10" max="100" value="82">
+                    <p class="helper">Applies to JPEG and WebP. PNG uses lossless output.</p>
+                </div>
+
+                <p class="helper format-note" id="format-note">Transparent areas become white in JPEG files.</p>
+                <button class="primary-button" id="create-button" type="submit">Create image</button>
+            </form>
+
+            <section class="panel preview-panel" aria-labelledby="preview-title">
+                <p class="eyebrow">Compare</p>
+                <h2 id="preview-title">Before and after</h2>
+                <div class="preview-grid">
+                    <figure class="preview-item">
+                        <div class="image-frame"><img id="original-preview" alt="Original image preview"></div>
+                        <figcaption>
+                            <strong>Original</strong>
+                            <span id="original-details"></span>
+                        </figcaption>
+                    </figure>
+                    <figure class="preview-item">
+                        <div class="image-frame">
+                            <p class="empty-preview" id="result-placeholder">Your new image will appear here.</p>
+                            <img id="result-preview" alt="Processed image preview" hidden>
+                        </div>
+                        <figcaption>
+                            <strong>Result</strong>
+                            <span id="result-details">Waiting for output</span>
+                        </figcaption>
+                    </figure>
+                </div>
+                <p class="size-change" id="size-change" hidden></p>
+                <a class="download-button" id="download-link" hidden>Download image <span aria-hidden="true">↓</span></a>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span>Image Resizer and Compressor</span>
+            <span>No upload or account needed.</span>
+        </div>
+    </footer>
+</body>
+</html>

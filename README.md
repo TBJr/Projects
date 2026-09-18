@@ -14,6 +14,7 @@ Open [the project gallery](index.html) to browse the demos in a browser.
 | [Expanding Cards](<Expanding Cards/>) | Expands an image panel when it is selected. |
 | [File upload with progress bar](<File upload with progress bar/>) | Uploads a file to a PHP handler and displays transfer progress. |
 | [Get user location](<Get user location/>) | Uses browser geolocation and reverse geocoding to show a location. |
+| [Image resizer and compressor](<Image resizer and compressor/>) | Resizes and converts images locally in the browser for download. |
 | [Progress Steps](<Progress Steps/>) | Moves forward and backward through a visual progress indicator. |
 | [QR Code Generator](<QR Code Generator/>) | Generates a QR code image from entered text or a URL. |
 | [Responsive personal portfolio](<Responsive personal portfolio/>) | A responsive, multi-section portfolio with animated text and a carousel. |
