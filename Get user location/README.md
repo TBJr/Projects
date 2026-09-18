@@ -1,9 +1,17 @@
 # Get user location
 
-A geolocation demonstration that asks for the browser's location permission, then uses OpenCage to turn coordinates into a county, postcode, and country. The result is shown on the button.
+This browser demo asks for location permission and uses OpenCage to turn coordinates into a county, postcode, and country.
 
-Serve this folder on `localhost` or over HTTPS, then open it in a browser and select **Detect your location**. For example, run `python3 -m http.server 8000` from this folder and visit `http://localhost:8000`. Geolocation requires a secure context, browser permission, and a device location source. Reverse geocoding also requires internet access and a working OpenCage API key; the current JavaScript includes a browser-visible key. Use your own key and move the request behind a server endpoint if the key must remain private.
+## Run
 
-Coordinates are sent to OpenCage for the lookup. The displayed address depends on the fields returned for that location; the page does not store a location history.
+1. Get an [OpenCage API key](https://opencagedata.com/api).
+2. Serve this folder on `localhost` or over HTTPS. For example, run `python3 -m http.server 8000` from this folder and open `http://localhost:8000`.
+3. Enter your key on the page and select **Detect your location**. Allow the browser's location request.
+
+Geolocation requires a secure context, browser permission, and a device location source. The address lookup requires internet access and an active OpenCage key. A county or postcode may be unavailable for some places.
+
+The page does not store your key or location persistently. The key remains in the form while the tab is open, and your key and coordinates are sent directly to OpenCage for each lookup. The key is visible in your browser's network requests, so a client-side page cannot keep it secret. Use a server endpoint if your application needs to protect its own key.
+
+**Maintainer note:** An earlier version included a key in JavaScript. [Replace that key in the OpenCage account](https://opencagedata.com/guides/how-to-create-a-new-api-key); changing this file does not remove the key from Git history or already published copies.
 
 Code credit: Thomas Brown — [thomasbrown.app](https://thomasbrown.app). OpenCage is an external service with separate terms.

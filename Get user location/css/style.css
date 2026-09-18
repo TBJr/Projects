@@ -1,34 +1,165 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+/*
+ * Get User Location
+ * Author: Thomas Brown
+ * Website: https://thomasbrown.app
+ */
 
-*{
-    margin: 0;
-    padding: 0;
+:root {
+    color-scheme: light;
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.5;
+    color: #202a3a;
+    background: #252930;
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body {
+    min-width: 280px;
     min-height: 100vh;
-    background: linear-gradient(#252930 50%, #5372F0 50%);
+    margin: 0;
+    background: linear-gradient(165deg, #252930 0 48%, #5372f0 48% 100%);
 }
 
-::selection{
-    color: #fff;
-    background: #5372F0;
+a {
+    color: #304fc4;
 }
 
-button{
-    border: none;
-    outline: none;
-    font-size: 50px;
-    color: #5372F0;
-    padding: 23px 44px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 500;
+:focus-visible {
+    outline: 3px solid #f49b54;
+    outline-offset: 3px;
+}
+
+.location-shell {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 28px 16px;
+}
+
+.location-card {
+    width: min(100%, 520px);
+    padding: clamp(24px, 5vw, 42px);
+    border-radius: 22px;
     background: #fff;
-    box-shadow: 0 0 20px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 18px 55px #17204a4d;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 25px;
+    font-size: .88rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.back-link:hover,
+.field-help a:hover {
+    text-decoration: underline;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    color: #435cc4;
+    font-size: .73rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 0 0 12px;
+    font-size: clamp(2rem, 8vw, 3rem);
+    letter-spacing: -.045em;
+    line-height: 1.1;
+}
+
+.intro {
+    margin: 0 0 27px;
+    color: #526071;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: .9rem;
+    font-weight: 750;
+}
+
+input {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 13px;
+    border: 1px solid #adb8cf;
+    border-radius: 10px;
+    background: #fff;
+    color: #202a3a;
+    font: inherit;
+}
+
+.field-help {
+    margin: 9px 0 22px;
+    color: #546173;
+    font-size: .82rem;
+    line-height: 1.55;
+}
+
+button {
+    width: 100%;
+    min-height: 50px;
+    padding: 11px 18px;
+    border: 0;
+    border-radius: 10px;
+    background: #3c5bdc;
+    color: #fff;
+    font: inherit;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+    background: #304bc4;
+}
+
+button:disabled {
+    cursor: wait;
+    opacity: .7;
+}
+
+.result,
+.error {
+    margin: 22px 0 0;
+    padding: 13px 15px;
+    border-radius: 10px;
+    background: #f0f3fb;
+    color: #34446a;
+    font-size: .91rem;
+    overflow-wrap: anywhere;
+}
+
+.result[data-state="error"],
+.error {
+    background: #fff0e9;
+    color: #8b341d;
+}
+
+.result[data-state="success"] {
+    background: #eaf7ee;
+    color: #245936;
+}
+
+@media (max-width: 480px) {
+    .location-shell {
+        align-items: start;
+        padding-block: 24px;
+    }
+
+    .location-card {
+        border-radius: 17px;
+    }
 }
