@@ -20,7 +20,7 @@ A collection of independent web projects and interface demos. Most use HTML, CSS
 | [Text to Speech](<Text to Speech/>) | Speaks entered text with the browser's speech synthesis API. |
 | [Typing Speed Test](<Typing Speed Test/>) | Times a typing exercise and reports mistakes, words per minute, and characters per minute. |
 | [Url shortener](<Url shortener/>) | A PHP and MySQL/MariaDB URL shortener with custom links, click counts, and link management. |
-| [boikerplate_template](<boikerplate_template/>) | A basic HTML, CSS, and JavaScript starter page. |
+| [boilerplate_template](<boilerplate_template/>) | A responsive HTML and CSS starter page. |
 | [text typing animation](<text typing animation/>) | A CSS typing animation that cycles through short phrases. |
 
 ## Running the browser projects
