@@ -1,1 +1,8 @@
 .DS_Store
+.kilo/
+.env
+.env.*
+!.env.example
+_site/
+__pycache__/
+File upload with progress bar/php/files/

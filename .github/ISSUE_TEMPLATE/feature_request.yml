@@ -1,0 +1,25 @@
+name: Feature request
+description: Suggest an improvement to an existing project.
+body:
+  - type: input
+    id: project
+    attributes:
+      label: Project folder
+      description: Which project would this improve?
+      placeholder: CSV viewer
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: What would this help with?
+      description: Describe the use case or problem.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested change
+      description: Describe your idea and any alternatives you considered.
+    validations:
+      required: true
