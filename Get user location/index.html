@@ -1,15 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-        <title>TBJ - Get User Location</title>
-    </head>
-    <body>
-        <button>Detect your location</button>
-        
-        <script src="js/script.js"></script>
-    </body>
+<!--
+    Author: Thomas Brown
+    Website: https://thomasbrown.app
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Look up your approximate location with browser geolocation and your own OpenCage key.">
+    <title>Get User Location</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <main class="location-shell">
+        <section class="location-card" aria-labelledby="page-title">
+            <a class="back-link" href="../index.html">← All projects</a>
+            <p class="eyebrow">Browser location tool</p>
+            <h1 id="page-title">Where am I?</h1>
+            <p class="intro">Allow location access to look up your county, postcode, and country.</p>
+
+            <form id="location-form">
+                <label for="api-key">Your OpenCage API key</label>
+                <input id="api-key" name="api-key" type="password" inputmode="text" autocomplete="off" spellcheck="false" minlength="32" maxlength="32" pattern="[A-Za-z0-9]{32}" title="Enter a 32-character OpenCage API key" required aria-describedby="key-help">
+                <p class="field-help" id="key-help">Use <a href="https://opencagedata.com/api" target="_blank" rel="noopener noreferrer">your own OpenCage key</a>. It stays in this tab while open, and is sent with your coordinates to OpenCage for the lookup.</p>
+                <button id="detect-button" type="submit">Detect your location</button>
+            </form>
+
+            <p class="result" id="location-result" role="status" aria-live="polite">Enter your key to get started.</p>
+            <noscript><p class="error">JavaScript is required to look up a location.</p></noscript>
+        </section>
+    </main>
+</body>
 </html>

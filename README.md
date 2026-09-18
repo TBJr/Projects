@@ -18,7 +18,7 @@ Open [the project gallery](index.html) to browse the demos in a browser.
 | [Detect browser](<Detect browser/>) | Identifies the browser and highlights its logo. |
 | [Expanding Cards](<Expanding Cards/>) | Expands an image panel when it is selected. |
 | [File upload with progress bar](<File upload with progress bar/>) | Uploads a file to a PHP handler and displays transfer progress. |
-| [Get user location](<Get user location/>) | Uses browser geolocation and reverse geocoding to show a location. |
+| [Get user location](<Get user location/>) | Uses browser geolocation and a user-provided OpenCage key to show a location. |
 | [Image resizer and compressor](<Image resizer and compressor/>) | Resizes and converts images locally in the browser for download. |
 | [Password generator](<Password generator/>) | Generates custom or Apple-style passwords locally without repeating a result during a page visit. |
 | [Progress Steps](<Progress Steps/>) | Moves forward and backward through a visual progress indicator. |
@@ -42,7 +42,7 @@ python3 -m http.server 8000
 
 Then open `http://localhost:8000/` and select a project folder. Browser features such as geolocation may require a secure context; `localhost` is supported by modern browsers.
 
-Some demos use external services or CDN-hosted assets. The connectivity check queries a remote endpoint, the location demo uses OpenCage for reverse geocoding, and the QR generator requests an image from qrserver.com. An internet connection is needed for those features.
+Some demos use external services or CDN-hosted assets. The connectivity check queries a remote endpoint, the location demo needs your own OpenCage key for reverse geocoding, and the QR generator requests an image from qrserver.com. An internet connection is needed for those features.
 
 ## Running the PHP projects
 
