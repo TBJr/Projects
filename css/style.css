@@ -1,0 +1,448 @@
+:root {
+    --page: #f7f8f4;
+    --surface: #ffffff;
+    --ink: #182924;
+    --muted: #50635a;
+    --line: #d5dfd7;
+    --accent: #155b48;
+    --accent-hover: #104637;
+    --soft: #e8f0e8;
+    --focus: #a9530c;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 0;
+    margin: 0;
+    color: var(--ink);
+    background: var(--page);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.55;
+}
+
+a {
+    color: inherit;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+}
+
+h1,
+h2,
+h3,
+p {
+    overflow-wrap: anywhere;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.14;
+}
+
+.container {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+.skip-link {
+    position: absolute;
+    top: -5rem;
+    left: 1rem;
+    z-index: 10;
+    padding: 0.7rem 1rem;
+    border: 2px solid var(--ink);
+    background: var(--surface);
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+.site-header {
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+}
+
+.header-inner,
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.8rem 2rem;
+}
+
+.header-inner {
+    min-height: 5rem;
+    padding-block: 1rem;
+}
+
+.site-name {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    text-decoration: none;
+}
+
+.site-name span {
+    color: var(--accent);
+}
+
+.site-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+}
+
+.site-header nav a,
+.site-footer a {
+    font-size: 0.9rem;
+    font-weight: 650;
+    text-underline-offset: 0.3em;
+}
+
+.intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(17rem, 0.65fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 6rem);
+    padding-block: clamp(4.5rem, 8vw, 7rem);
+}
+
+.eyebrow {
+    margin: 0 0 1rem;
+    color: var(--accent);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+h1 {
+    max-width: 13ch;
+    margin: 0;
+    font-size: clamp(3rem, 6vw, 5.8rem);
+    letter-spacing: -0.06em;
+}
+
+.intro-text {
+    max-width: 58ch;
+    margin: 1.5rem 0 0;
+    color: var(--muted);
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+}
+
+.primary-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    min-height: 3.1rem;
+    margin-top: 2rem;
+    padding: 0.7rem 1.15rem;
+    border-radius: 0.5rem;
+    background: var(--accent);
+    color: #ffffff;
+    font-weight: 750;
+    text-decoration: none;
+}
+
+.primary-link:hover {
+    background: var(--accent-hover);
+}
+
+.intro-aside {
+    position: relative;
+    min-width: 0;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border-radius: 1.25rem;
+    background: #173c31;
+    color: #ffffff;
+}
+
+.intro-aside::before {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid rgb(255 255 255 / 30%);
+    border-radius: 50%;
+    content: "";
+}
+
+.intro-aside strong {
+    display: block;
+    font-size: clamp(5rem, 9vw, 8rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.08em;
+}
+
+.intro-aside > span {
+    display: block;
+    margin-top: 0.5rem;
+    color: #dceee3;
+}
+
+.overview-counts {
+    display: grid;
+    gap: 0.2rem;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgb(255 255 255 / 28%);
+}
+
+.overview-counts p {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0;
+    color: #dceee3;
+    font-size: 0.9rem;
+}
+
+.overview-counts b {
+    color: #ffffff;
+}
+
+.project-section {
+    padding-block: clamp(3.5rem, 7vw, 6rem);
+    border-top: 1px solid var(--line);
+}
+
+.section-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr);
+    align-items: end;
+    gap: 1.5rem 3rem;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    margin: 0;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    letter-spacing: -0.045em;
+}
+
+.section-heading > p {
+    max-width: 45ch;
+    margin: 0;
+    color: var(--muted);
+}
+
+.project-grid,
+.server-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.project-grid > li,
+.server-grid > li {
+    min-width: 0;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 15.5rem;
+    height: 100%;
+    padding: clamp(1.3rem, 2.5vw, 2rem);
+    border: 1px solid var(--line);
+    border-radius: 0.85rem;
+    background: var(--surface);
+    text-decoration: none;
+    transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.project-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+.project-card:focus-visible {
+    outline-offset: 2px;
+}
+
+.card-kind {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 1.65rem;
+    color: var(--accent);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.card-note {
+    padding: 0.18rem 0.45rem;
+    border-radius: 0.25rem;
+    background: var(--soft);
+    font-size: 0.66rem;
+    letter-spacing: 0.02em;
+}
+
+.project-card h3,
+.server-card h3 {
+    margin: 1.1rem 0 0;
+    font-size: clamp(1.25rem, 1.7vw, 1.55rem);
+    letter-spacing: -0.025em;
+}
+
+.project-card p,
+.server-card p {
+    margin: 0.75rem 0 0;
+    color: var(--muted);
+    font-size: 0.94rem;
+}
+
+.card-action {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1.5rem;
+    color: var(--accent);
+    font-size: 0.86rem;
+    font-weight: 750;
+}
+
+.server-section {
+    background: var(--soft);
+}
+
+.server-section .section-heading > p a,
+.server-card a {
+    color: var(--accent);
+    font-weight: 750;
+    text-underline-offset: 0.3em;
+}
+
+.server-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.server-card {
+    padding: clamp(1.4rem, 3vw, 2.25rem);
+    border: 1px solid var(--line);
+    border-radius: 0.85rem;
+    background: var(--surface);
+}
+
+.server-requirement {
+    display: inline-block;
+    padding: 0.35rem 0.65rem;
+    border-radius: 0.3rem;
+    background: var(--soft);
+    color: var(--accent);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.server-card p {
+    max-width: 60ch;
+}
+
+.server-card a {
+    display: inline-block;
+    margin-top: 1.5rem;
+}
+
+code {
+    padding: 0.08em 0.25em;
+    border-radius: 0.2rem;
+    background: var(--soft);
+    font-size: 0.9em;
+}
+
+.site-footer {
+    border-top: 1px solid var(--line);
+    background: var(--surface);
+}
+
+.footer-inner {
+    min-height: 5rem;
+    padding-block: 1rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 65rem) {
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 48rem) {
+    .intro,
+    .section-heading {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-aside {
+        max-width: 26rem;
+    }
+}
+
+@media (max-width: 40rem) {
+    .project-grid,
+    .server-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        min-height: 13.5rem;
+    }
+}
+
+@media (max-width: 30rem) {
+    .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .site-header nav {
+        gap: 0.35rem 1rem;
+    }
+
+    .primary-link {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .project-card {
+        transition: none;
+    }
+
+    .project-card:hover {
+        transform: none;
+    }
+}
