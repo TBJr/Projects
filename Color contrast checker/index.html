@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--
+    Author: Thomas Brown
+    Website: https://thomasbrown.app
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compare two colors, check WCAG contrast ratios, and preview text and buttons.">
+    <title>Color Contrast Checker</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to contrast checker</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <span class="site-name">Contrast Checker</span>
+            <a href="../index.html">All projects <span aria-hidden="true">↗</span></a>
+        </div>
+    </header>
+
+    <main id="main" class="container">
+        <section class="intro" aria-labelledby="page-title">
+            <div>
+                <p class="eyebrow">A browser-only color tool</p>
+                <h1 id="page-title">See how your colors read.</h1>
+                <p class="lead">Choose a foreground and background, compare their contrast, and see the pair on text and button samples.</p>
+            </div>
+            <div class="intro-mark" aria-hidden="true"><span>Aa</span><span>Aa</span></div>
+        </section>
+
+        <div class="tool-grid">
+            <section class="panel controls-panel" aria-labelledby="controls-title">
+                <div class="panel-heading">
+                    <p class="eyebrow">01 / Choose</p>
+                    <h2 id="controls-title">Your colors</h2>
+                    <p>Use a picker or enter a 3- or 6-digit hex value.</p>
+                </div>
+                <noscript><p class="no-script">Turn on JavaScript to calculate contrast.</p></noscript>
+
+                <div class="color-group">
+                    <h3>Foreground</h3>
+                    <div class="color-row">
+                        <div class="picker-field">
+                            <label for="foreground-picker">Color picker</label>
+                            <input id="foreground-picker" type="color" value="#19352a" aria-label="Foreground color picker">
+                        </div>
+                        <div class="hex-field">
+                            <label for="foreground-hex">Hex value</label>
+                            <input id="foreground-hex" type="text" value="#19352A" maxlength="7" autocomplete="off" spellcheck="false" autocapitalize="off" aria-label="Foreground hex value" aria-describedby="foreground-help foreground-error">
+                        </div>
+                    </div>
+                    <p class="field-help" id="foreground-help">This color is used for text and button outlines.</p>
+                    <p class="field-error" id="foreground-error" role="alert" hidden></p>
+                </div>
+
+                <button class="swap-button" id="swap-colors" type="button">Swap colors <span aria-hidden="true">⇅</span></button>
+
+                <div class="color-group">
+                    <h3>Background</h3>
+                    <div class="color-row">
+                        <div class="picker-field">
+                            <label for="background-picker">Color picker</label>
+                            <input id="background-picker" type="color" value="#f6f8f4" aria-label="Background color picker">
+                        </div>
+                        <div class="hex-field">
+                            <label for="background-hex">Hex value</label>
+                            <input id="background-hex" type="text" value="#F6F8F4" maxlength="7" autocomplete="off" spellcheck="false" autocapitalize="off" aria-label="Background hex value" aria-describedby="background-help background-error">
+                        </div>
+                    </div>
+                    <p class="field-help" id="background-help">This color fills the preview surface.</p>
+                    <p class="field-error" id="background-error" role="alert" hidden></p>
+                </div>
+
+                <div class="presets" aria-labelledby="presets-title">
+                    <h3 id="presets-title">Try a pair</h3>
+                    <div class="preset-list">
+                        <button class="preset-button" type="button" data-foreground="#19352A" data-background="#F6F8F4" style="--preset-foreground:#19352A;--preset-background:#F6F8F4"><span class="preset-swatch" aria-hidden="true"></span>Light</button>
+                        <button class="preset-button" type="button" data-foreground="#F6F8F4" data-background="#19352A" style="--preset-foreground:#F6F8F4;--preset-background:#19352A"><span class="preset-swatch" aria-hidden="true"></span>Dark</button>
+                        <button class="preset-button" type="button" data-foreground="#9EAD9E" data-background="#FFFFFF" style="--preset-foreground:#9EAD9E;--preset-background:#FFFFFF"><span class="preset-swatch" aria-hidden="true"></span>Low contrast</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel results-panel" aria-labelledby="results-title">
+                <div class="panel-heading">
+                    <p class="eyebrow">02 / Check</p>
+                    <h2 id="results-title">Contrast results</h2>
+                    <p>The ratio compares these two colors only.</p>
+                </div>
+
+                <div class="ratio-block">
+                    <p>Contrast ratio</p>
+                    <div class="ratio-number"><output id="ratio-value">—</output><span>:1</span></div>
+                    <p id="ratio-caption">Waiting for colors</p>
+                </div>
+                <p class="visually-hidden" id="result-announcement" role="status" aria-live="polite" aria-atomic="true"></p>
+
+                <div class="criteria" role="group" aria-label="WCAG 2.2 contrast checks">
+                    <div class="criterion" id="normal-aa-card">
+                        <div><strong>Normal text</strong><span>AA · at least 4.5:1</span></div>
+                        <b id="normal-aa-result">—</b>
+                    </div>
+                    <div class="criterion" id="normal-aaa-card">
+                        <div><strong>Normal text</strong><span>AAA · at least 7:1</span></div>
+                        <b id="normal-aaa-result">—</b>
+                    </div>
+                    <div class="criterion" id="large-aa-card">
+                        <div><strong>Large text</strong><span>AA · at least 3:1</span></div>
+                        <b id="large-aa-result">—</b>
+                    </div>
+                    <div class="criterion" id="large-aaa-card">
+                        <div><strong>Large text</strong><span>AAA · at least 4.5:1</span></div>
+                        <b id="large-aaa-result">—</b>
+                    </div>
+                    <div class="criterion" id="ui-aa-card">
+                        <div><strong>Essential UI details</strong><span>AA · at least 3:1</span></div>
+                        <b id="ui-aa-result">—</b>
+                    </div>
+                </div>
+                <p class="result-note">A passing pair does not assess every color, state, or element in an interface. Check each meaningful combination separately.</p>
+            </section>
+        </div>
+
+        <section class="panel preview-panel" aria-labelledby="preview-title">
+            <div class="preview-heading">
+                <div>
+                    <p class="eyebrow">03 / Preview</p>
+                    <h2 id="preview-title">See the pair in use</h2>
+                </div>
+                <p>Samples use your selected foreground and background colors.</p>
+            </div>
+            <div class="preview-surface" id="preview-surface">
+                <p class="preview-label">Large text · 24 px</p>
+                <h3>Clear choices start with readable colors.</h3>
+                <p class="preview-label">Normal text · 16 px</p>
+                <p class="preview-body">This sample shows how regular text looks against the chosen background. Compare both colors before using them in a real interface.</p>
+                <div class="preview-actions" aria-label="Button appearance samples">
+                    <span class="sample-button sample-button-filled">Primary action</span>
+                    <span class="sample-button sample-button-outline">Secondary action</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span>Color Contrast Checker</span>
+            <span>Colors stay in your browser.</span>
+        </div>
+    </footer>
+</body>
+</html>

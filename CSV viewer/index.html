@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--
+    Author: Thomas Brown
+    Website: https://thomasbrown.app
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Open a CSV or TSV file locally, then search, sort, and page through its rows.">
+    <title>CSV Viewer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/csv.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to CSV viewer</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <span class="site-name">CSV Viewer</span>
+            <a href="../index.html">All projects <span aria-hidden="true">↗</span></a>
+        </div>
+    </header>
+
+    <main id="main" class="container">
+        <section class="intro" aria-labelledby="page-title">
+            <div>
+                <p class="eyebrow">A local browser tool</p>
+                <h1 id="page-title">A clearer view of your CSV.</h1>
+                <p class="lead">Open a spreadsheet export, inspect its columns, and find the rows you need. Your file stays in this browser tab.</p>
+            </div>
+            <div class="intro-art" aria-hidden="true">
+                <span class="art-label">data.csv</span>
+                <span class="art-row"><i></i><i></i><i></i></span>
+                <span class="art-row"><i></i><i></i><i></i></span>
+                <span class="art-row"><i></i><i></i><i></i></span>
+            </div>
+        </section>
+
+        <div class="workspace">
+            <section class="panel source-panel" aria-labelledby="source-title">
+                <div class="panel-heading">
+                    <p class="eyebrow">01 / Choose a source</p>
+                    <h2 id="source-title">Bring your data in</h2>
+                    <p>Choose a CSV or TSV file, or try the built-in sample.</p>
+                </div>
+
+                <noscript><p class="error-message">Turn on JavaScript to preview a file.</p></noscript>
+
+                <div class="drop-zone" id="drop-zone">
+                    <span class="drop-icon" aria-hidden="true">↓</span>
+                    <strong>Drop a file here</strong>
+                    <span>or choose one from your device</span>
+                    <input class="file-input" id="file-input" type="file" accept=".csv,.tsv,.txt,text/csv,text/tab-separated-values,text/plain" aria-describedby="file-help">
+                    <label class="picker-button" for="file-input">Choose a file</label>
+                </div>
+                <p class="field-help" id="file-help">CSV, TSV, or delimited text · UTF-8 · up to 5 MB</p>
+
+                <div class="sample-row">
+                    <button class="secondary-button sample-button" id="sample-button" type="button">Try sample data <span aria-hidden="true">↗</span></button>
+                    <button class="text-button" id="clear-button" type="button" hidden>Clear file</button>
+                </div>
+
+                <div class="source-meta" id="source-meta" hidden>
+                    <span class="source-meta-label">Now viewing</span>
+                    <strong id="source-name"></strong>
+                    <span id="source-details"></span>
+                </div>
+
+                <div class="controls" aria-labelledby="options-title">
+                    <h3 id="options-title">Reading options</h3>
+                    <div class="control-grid">
+                        <div class="field">
+                            <label for="delimiter-select">Column separator</label>
+                            <select id="delimiter-select">
+                                <option value="auto">Auto-detect</option>
+                                <option value=",">Comma</option>
+                                <option value=";">Semicolon</option>
+                                <option value="tab">Tab</option>
+                            </select>
+                        </div>
+                        <label class="checkbox-field" for="first-row-header">
+                            <input id="first-row-header" type="checkbox" checked>
+                            <span>First row contains headings</span>
+                        </label>
+                    </div>
+                </div>
+
+                <p class="privacy-note">Files are read on your device. This tool does not upload or save their contents.</p>
+                <p class="error-message" id="error-message" role="alert" hidden></p>
+            </section>
+
+            <section class="panel data-panel" aria-labelledby="preview-title">
+                <div class="panel-heading">
+                    <p class="eyebrow">02 / Explore the rows</p>
+                    <h2 id="preview-title">Table preview</h2>
+                    <p>Search every column, sort by a heading, and move through the results.</p>
+                </div>
+
+                <div class="search-row">
+                    <label for="search-input">Search rows</label>
+                    <input id="search-input" type="search" placeholder="Search all columns" autocomplete="off" disabled>
+                </div>
+
+                <div class="empty-state" id="empty-state">
+                    <span class="empty-mark" aria-hidden="true">▦</span>
+                    <h3 id="empty-title">Your table will appear here.</h3>
+                    <p id="empty-description">Choose a file or open the sample to get started.</p>
+                </div>
+
+                <div class="results-bar" id="results-bar" hidden>
+                    <p id="results-count"></p>
+                    <p id="column-count"></p>
+                </div>
+
+                <div class="table-frame" id="table-frame" tabindex="0" role="region" aria-label="Scrollable CSV table" hidden>
+                    <table class="data-table">
+                        <caption id="table-caption">CSV table</caption>
+                        <thead id="table-head"></thead>
+                        <tbody id="table-body"></tbody>
+                    </table>
+                </div>
+
+                <div class="pagination" id="pagination" hidden>
+                    <button class="secondary-button" id="previous-page" type="button">← Previous</button>
+                    <span id="page-label"></span>
+                    <button class="secondary-button" id="next-page" type="button">Next →</button>
+                </div>
+                <p class="status-message" id="viewer-status" role="status" aria-live="polite"></p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span>CSV Viewer</span>
+            <span>Local files, clear answers.</span>
+        </div>
+    </footer>
+</body>
+</html>

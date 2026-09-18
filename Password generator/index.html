@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--
+    Author: Thomas Brown
+    Website: https://thomasbrown.app
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Generate a random password in your browser with adjustable length and character types.">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to password generator</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <span class="site-name">Password Generator</span>
+            <a href="../index.html">All projects <span aria-hidden="true">↗</span></a>
+        </div>
+    </header>
+
+    <main id="main" class="container">
+        <section class="intro" aria-labelledby="page-title">
+            <div>
+                <p class="eyebrow">A local browser tool</p>
+                <h1 id="page-title">Make a password worth keeping.</h1>
+                <p class="lead">Choose a custom password or an Apple-style suggestion, then generate a new result whenever you need one.</p>
+            </div>
+            <div class="intro-symbol" aria-hidden="true"><span>••••</span><span>••••</span></div>
+        </section>
+
+        <div class="generator-layout">
+            <section class="panel settings-panel" aria-labelledby="settings-title">
+                <div class="panel-heading">
+                    <p class="eyebrow">01 / Set it up</p>
+                    <h2 id="settings-title">Choose your mix</h2>
+                    <p>Choose a format that fits where you will use the password.</p>
+                </div>
+                <noscript><p class="no-script">Turn on JavaScript to generate a password.</p></noscript>
+
+                <fieldset class="format-options" aria-describedby="format-help">
+                    <legend>Password format</legend>
+                    <p class="field-help" id="format-help">Choose a format before generating.</p>
+                    <div class="format-grid">
+                        <label class="format-card" for="format-custom"><input id="format-custom" type="radio" name="password-format" value="custom" checked><span><strong>Custom</strong><small>Choose length and character types</small></span></label>
+                        <label class="format-card" for="format-apple"><input id="format-apple" type="radio" name="password-format" value="apple"><span><strong>Apple-style suggestion</strong><small>Three groups, 20 characters</small></span></label>
+                    </div>
+                </fieldset>
+
+                <div id="custom-settings">
+                    <div class="length-control">
+                        <label for="length-range">Password length <output id="length-value" for="length-range">20</output></label>
+                        <input id="length-range" type="range" min="8" max="64" step="1" value="20" aria-describedby="length-help">
+                        <div class="range-labels"><span>8 characters</span><span>64 characters</span></div>
+                        <p class="field-help" id="length-help">Use the arrow keys to change the length one character at a time.</p>
+                    </div>
+
+                    <fieldset class="character-options" id="character-options" aria-describedby="options-help options-error">
+                        <legend>Character types</legend>
+                        <p class="field-help" id="options-help">Select at least one type. Each selected type appears in the result.</p>
+                        <div class="option-grid">
+                            <label class="option-card" for="include-lowercase"><input id="include-lowercase" type="checkbox" checked><span><strong>Lowercase</strong><small>a–z</small></span></label>
+                            <label class="option-card" for="include-uppercase"><input id="include-uppercase" type="checkbox" checked><span><strong>Uppercase</strong><small>A–Z</small></span></label>
+                            <label class="option-card" for="include-numbers"><input id="include-numbers" type="checkbox" checked><span><strong>Numbers</strong><small>0–9</small></span></label>
+                            <label class="option-card" for="include-symbols"><input id="include-symbols" type="checkbox" checked><span><strong>Symbols</strong><small>! @ # …</small></span></label>
+                        </div>
+                        <p class="field-error" id="options-error" role="alert" hidden>Select at least one character type.</p>
+                    </fieldset>
+
+                    <p class="selection-summary" id="selection-summary">20 characters · 4 types selected</p>
+                    <p class="setting-caution" id="setting-caution" role="status" aria-live="polite" hidden>This setting has relatively few possible combinations. Increase the length or add character types.</p>
+                </div>
+                <div class="apple-settings" id="apple-settings" hidden>
+                    <p><strong>20 characters in three groups of six.</strong> The groups are separated by hyphens and contain 16 lowercase letters, one uppercase letter, and one digit.</p>
+                    <p>This option follows the visible style of Apple's default suggestion; it does not reproduce Apple's exact generator.</p>
+                </div>
+
+                <button class="primary-button" id="generate-button" type="button">Generate password <span aria-hidden="true">↗</span></button>
+            </section>
+
+            <section class="panel result-panel" aria-labelledby="result-title">
+                <div class="panel-heading">
+                    <p class="eyebrow">02 / Use it</p>
+                    <h2 id="result-title">Your password</h2>
+                    <p>The result stays masked until you reveal it.</p>
+                </div>
+
+                <label class="password-label" for="password-output">Generated password</label>
+                <div class="password-field">
+                    <input id="password-output" type="password" readonly autocomplete="off" spellcheck="false" placeholder="Generate a password to begin">
+                    <button class="reveal-button" id="toggle-visibility" type="button" disabled>Show password</button>
+                </div>
+                <button class="copy-button" id="copy-button" type="button" disabled>Copy password</button>
+                <p class="status-message" id="generator-status" role="status" aria-live="polite">Choose your settings, then generate a password.</p>
+                <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+
+                <div class="privacy-note">
+                    <h3>Made on this device</h3>
+                    <p>Generation uses your browser's secure random values. Generated passwords are not sent to a server or saved persistently. This page keeps previous results in memory to avoid repeats during this visit. Copying places the result on your clipboard.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span>Password Generator</span>
+            <span>No account or server needed.</span>
+        </div>
+    </footer>
+</body>
+</html>
