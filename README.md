@@ -9,7 +9,7 @@ Open [the project gallery](index.html) to browse the demos in a browser.
 | Project | Description |
 | --- | --- |
 | [Check internet connection](<Check internet connection/>) | Shows an online or offline status message after checking a remote endpoint. |
-| [Cookie consent box](<Cookie consent box/>) | Displays a consent notice and remembers the choice in a browser cookie. |
+| [Cookie consent box](<Cookie consent box/>) | Offers accept, reject, and custom preference choices, then remembers the decision. |
 | [Detect browser](<Detect browser/>) | Identifies the browser and highlights its logo. |
 | [Expanding Cards](<Expanding Cards/>) | Expands an image panel when it is selected. |
 | [File upload with progress bar](<File upload with progress bar/>) | Uploads a file to a PHP handler and displays transfer progress. |

@@ -1,42 +1,124 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-        <title>TBJ - Cookie Constent Box</title>
-    </head>
-    <body>
-        <div class="wrapper">
-            <img src="#" alt="">
-            <div class="content">
-                <header>Cookies Consent</header>
-                <p>This website use cookies to ensure you get the best experience on our website.</p>
-                <div class="buttons">
-                    <button class="item">I understand</button>
-                    <a href="#" class="item">Learn more</a>
-                </div>
-            </div>
+<!--
+    Author: Thomas Brown
+    Website: https://thomasbrown.app
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A static cookie consent demo with clear choices and saved preferences.">
+    <title>Cookie Consent Demo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body class="banner-visible">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <span class="site-name">Cookie Consent</span>
+            <button class="settings-link" id="open-settings" type="button" disabled>Cookie settings</button>
         </div>
-        
-        <script>
-            const cookieBox = document.querySelector(".wrapper"),
-            acceptBtn = cookieBox.querySelector("button");
-        
-            acceptBtn.onclick = ()=>{
-                //setting cookie for 1 month, after one month it'll be expired automatically
-                document.cookie = "CookieBy=CodingNepal; max-age="+60*60*24*30;
-                if(document.cookie){ //if cookie is set
-                    cookieBox.classList.add("hide"); //hide cookie box
-                }else{ //if cookie not set then alert an error
-                    alert("Cookie can't be set! Please unblock this site from the cookie setting of your browser.");
-                }
-            }
-            let checkCookie = document.cookie.indexOf("CookieBy=CodingNepal"); //checking our cookie
-            //if cookie is set then hide the cookie box else show it
-            checkCookie != -1 ? cookieBox.classList.add("hide") : cookieBox.classList.remove("hide");
-        </script>
-        <script src="js/script.js"></script>
-    </body>
+    </header>
+
+    <main id="main" class="page-main">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-copy">
+                    <p class="eyebrow">A static component demo</p>
+                    <h1>Give visitors a clear choice.</h1>
+                    <p class="lead">Try the consent prompt at the bottom of the page. Accept or reject a local visit counter, or choose in settings. You can change your choice at any time.</p>
+                </div>
+                <section class="status-card" aria-labelledby="status-title">
+                    <span class="status-label">Your current setting</span>
+                    <h2 id="status-title">Current preference</h2>
+                    <p class="status-value" id="choice-status" role="status" aria-live="polite">Checking your choice…</p>
+                    <p class="status-detail" id="storage-status"></p>
+                    <p class="counter-status" id="counter-status" aria-live="polite">Local counter is off.</p>
+                </section>
+            </div>
+
+            <section class="consent-banner" id="consent-banner" role="region" aria-labelledby="consent-title" aria-describedby="consent-description">
+                <div class="banner-copy">
+                    <span class="banner-icon" aria-hidden="true"></span>
+                    <div>
+                        <h2 id="consent-title">Your cookie choices</h2>
+                        <p id="consent-description">This demo saves your choice in your browser. The local visit counter runs only if you allow it. Its count stays in this browser.</p>
+                    </div>
+                </div>
+                <div class="banner-actions">
+                    <button class="choice-button" id="reject-optional" type="button" disabled>Reject optional</button>
+                    <button class="choice-button" id="accept-all" type="button" disabled>Accept all</button>
+                    <button class="customize-button" id="customize" type="button" disabled>Customize</button>
+                </div>
+                <noscript><p class="no-script">JavaScript is required to save a choice in this demo.</p></noscript>
+            </section>
+
+            <section class="explanation" aria-labelledby="explanation-title">
+                <div class="section-heading">
+                    <p class="eyebrow">How this example works</p>
+                    <h2 id="explanation-title">The choice stays yours.</h2>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <span class="feature-number">01</span>
+                        <h3>Necessary storage</h3>
+                        <p>One first-party preference cookie remembers your decision when cookies are available.</p>
+                    </article>
+                    <article class="feature-card">
+                        <span class="feature-number">02</span>
+                        <h3>Optional counter</h3>
+                        <p>A local visit counter only runs after you allow it. The count stays in this browser.</p>
+                    </article>
+                    <article class="feature-card">
+                        <span class="feature-number">03</span>
+                        <h3>Change your mind</h3>
+                        <p>Use Cookie settings at the top of the page to review or change your saved choice.</p>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span>Cookie Consent Demo</span>
+            <span>No analytics requests are made.</span>
+        </div>
+    </footer>
+
+    <dialog class="preferences-dialog" id="preferences-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+        <form id="preferences-form">
+            <div class="dialog-heading">
+                <div>
+                    <p class="eyebrow">Your decision</p>
+                    <h2 id="dialog-title">Cookie preferences</h2>
+                </div>
+                <button class="close-button" id="close-dialog" type="button" aria-label="Close preferences">×</button>
+            </div>
+            <p class="dialog-intro" id="dialog-description">Choose whether this demo may count visits in your browser. The count stays local.</p>
+
+            <div class="preference-row">
+                <div>
+                    <h3>Necessary storage</h3>
+                    <p>Remembers your decision in a first-party cookie when available.</p>
+                </div>
+                <span class="always-on">Always on</span>
+            </div>
+            <label class="preference-row optional-row" for="counter-choice">
+                <span>
+                    <strong>Local visit counter</strong>
+                    <span class="row-description">Saves a count in this browser only. Turning it off deletes the count.</span>
+                </span>
+                <input id="counter-choice" name="counter" type="checkbox">
+            </label>
+
+            <div class="dialog-actions">
+                <button class="secondary-button" id="cancel-dialog" type="button">Cancel</button>
+                <button class="save-button" type="submit">Save preferences</button>
+            </div>
+        </form>
+    </dialog>
+</body>
 </html>
