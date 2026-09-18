@@ -2,6 +2,8 @@
 
 A collection of independent web projects and interface demos. Most use HTML, CSS, and JavaScript directly, so there is no shared build step.
 
+Open [the project gallery](index.html) to browse the demos in a browser.
+
 ## Project index
 
 | Project | Description |
