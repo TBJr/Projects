@@ -2,6 +2,8 @@
 
 A collection of independent web projects and interface demos. Most use HTML, CSS, and JavaScript directly, so there is no shared build step.
 
+Maintained by [Thomas Brown](https://thomasbrown.app).
+
 Open [the project gallery](index.html) to browse the demos in a browser.
 
 ## Project index
@@ -56,3 +58,15 @@ Open `http://localhost:8001/`.
 **Url shortener** requires PHP with `mysqli`, MySQL or MariaDB, and an Apache server with URL rewriting enabled for shortened links. Create a `urlshortener` database and import [`database/url.sql`](<Url shortener/database/url.sql>). Set the database connection and base URL in [`php/config.php`](<Url shortener/php/config.php>), and set the displayed short-link domain in [`js/script.js`](<Url shortener/js/script.js>) to match. Serve the `Url shortener` folder and open `index.php` directly; its `index.html` is a separate starter page.
 
 The PHP projects are local demos. Review their upload and link-management behavior before exposing them publicly.
+
+## License and credit
+
+Original code and documentation owned by Thomas Brown are released under the [MIT license](LICENSE). You may use, modify, and share that material, including in commercial work, while keeping its copyright and license notice with copies or substantial portions. Source comments and this README also identify the author.
+
+Bundled libraries and files with separate or unverified rights are described in [Third-party material](THIRD_PARTY_NOTICES.md). The root MIT license does not grant rights to those files.
+
+## Contributing and security
+
+See [Contributing](CONTRIBUTING.md) before opening a pull request, and follow the [Code of conduct](CODE_OF_CONDUCT.md). For vulnerabilities, read the [Security policy](SECURITY.md) before reporting details publicly.
+
+Maintainers can use the [repository settings guide](docs/MAINTAINER_GUIDE.md) when setting `main` as the default and protected branch.

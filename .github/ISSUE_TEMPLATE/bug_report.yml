@@ -1,0 +1,36 @@
+name: Bug report
+description: Report something that does not work as expected in a project.
+body:
+  - type: markdown
+    attributes:
+      value: Please avoid posting credentials, personal data, or security details here. See SECURITY.md for private reporting.
+  - type: input
+    id: project
+    attributes:
+      label: Project folder
+      description: Which project is affected?
+      placeholder: Password generator
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the actual result and what you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include the smallest set of steps that shows the problem.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser and operating system, or PHP version for a PHP project.
+      placeholder: Firefox on macOS
+    validations:
+      required: false
