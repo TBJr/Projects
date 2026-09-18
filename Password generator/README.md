@@ -1,0 +1,7 @@
+# Password Generator
+
+Generate a password in the browser without a server, account, or build step. Open `index.html` directly. The page does not transmit or persist generated passwords.
+
+Choose Custom for a length from 8 to 64 characters and any combination of lowercase letters, uppercase letters, numbers, and symbols. Every selected character type appears at least once in a custom result. Apple-style suggestion produces 20 characters in three groups of six separated by hyphens, with 16 lowercase letters, one uppercase letter, and one digit. It follows the visible format of [Apple’s default suggested password](https://support.apple.com/en-ae/guide/security/secc84c811c4/web); it is not Apple’s exact generator. Passwords start masked; use Show password to reveal one, or Copy password to put it on the clipboard. If clipboard access is unavailable, the page selects the password so it can be copied manually.
+
+Generation uses the browser's [`crypto.getRandomValues()`](https://www.w3.org/TR/WebCryptoAPI/#Crypto-method-getRandomValues) and rejection sampling for unbiased character choices. The page does not fall back to `Math.random()`. A caution appears for settings with relatively few possible combinations; it is not a security rating. Changing an option clears the displayed result. The page keeps generated passwords only in memory to avoid issuing the same password twice during a visit. Navigating away clears that history and the displayed password, so repeats across reloads or devices are not tracked.

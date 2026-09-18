@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+    Author: Thomas Brown
+    Website: https://thomasbrown.app
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Try a contact form with clear, accessible validation and feedback.">
+    <title>Accessible Form Validation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to form</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <span class="site-name">Form Validation</span>
+            <a href="../index.html">All projects <span aria-hidden="true">↗</span></a>
+        </div>
+    </header>
+
+    <main id="main" class="container">
+        <section class="intro" aria-labelledby="page-title">
+            <div>
+                <p class="eyebrow">Interactive form demo</p>
+                <h1 id="page-title">A form that helps you finish.</h1>
+                <p class="lead">Try the contact form below. It explains what needs fixing, keeps each message next to its field, and confirms when everything is valid.</p>
+            </div>
+            <p class="demo-note"><strong>Demo only.</strong> Checking the form does not send or save your message.</p>
+        </section>
+
+        <div class="demo-grid">
+            <div class="form-panel">
+                <p class="script-note" id="script-note">Turn on JavaScript to use this form demo.</p>
+                <form id="contact-form" novalidate hidden>
+                    <div class="form-heading">
+                        <p class="eyebrow">Try it out</p>
+                        <h2>Contact form</h2>
+                        <p>All fields are required. You can use the keyboard from start to finish.</p>
+                    </div>
+
+                    <div class="error-summary" id="error-summary" aria-labelledby="error-title" tabindex="-1" hidden>
+                        <h3 id="error-title">Please fix the following:</h3>
+                        <ul id="error-list"></ul>
+                    </div>
+                    <p class="visually-hidden" id="validation-status" role="status" aria-live="polite" aria-atomic="true"></p>
+
+                    <div class="field" data-field="full-name">
+                        <label for="full-name">Full name <span class="required" aria-hidden="true">*</span></label>
+                        <input id="full-name" name="full-name" type="text" autocomplete="name" required minlength="2" maxlength="60" aria-describedby="full-name-help full-name-error">
+                        <p class="field-help" id="full-name-help">Use at least 2 characters.</p>
+                        <p class="field-error" id="full-name-error" hidden></p>
+                    </div>
+
+                    <div class="field" data-field="email">
+                        <label for="email">Email address <span class="required" aria-hidden="true">*</span></label>
+                        <input id="email" name="email" type="email" autocomplete="email" required maxlength="254" aria-describedby="email-help email-error">
+                        <p class="field-help" id="email-help">Use an address such as name@example.com.</p>
+                        <p class="field-error" id="email-error" hidden></p>
+                    </div>
+
+                    <div class="field" data-field="topic">
+                        <label for="topic">Topic <span class="required" aria-hidden="true">*</span></label>
+                        <select id="topic" name="topic" required aria-describedby="topic-help topic-error">
+                            <option value="">Choose a topic</option>
+                            <option value="question">General question</option>
+                            <option value="feedback">Website feedback</option>
+                            <option value="idea">Project idea</option>
+                        </select>
+                        <p class="field-help" id="topic-help">Choose the closest match.</p>
+                        <p class="field-error" id="topic-error" hidden></p>
+                    </div>
+
+                    <div class="field" data-field="message">
+                        <label for="message">Message <span class="required" aria-hidden="true">*</span></label>
+                        <textarea id="message" name="message" rows="6" required minlength="20" maxlength="500" aria-describedby="message-help message-error"></textarea>
+                        <p class="field-help field-help-split" id="message-help"><span>Use at least 20 characters.</span><span id="message-count">0 / 500</span></p>
+                        <p class="field-error" id="message-error" hidden></p>
+                    </div>
+
+                    <button class="primary-button" type="submit">Check form <span aria-hidden="true">↗</span></button>
+                    <p class="submit-note">This button checks your entries on this page only.</p>
+                </form>
+
+                <section class="success-panel" id="success-panel" aria-labelledby="success-title" tabindex="-1" hidden>
+                    <span class="success-icon" aria-hidden="true">✓</span>
+                    <p class="eyebrow">All set</p>
+                    <h2 id="success-title">Every field passed validation.</h2>
+                    <p>The form was checked in your browser. No message was sent or saved.</p>
+                    <button class="secondary-button" id="start-over" type="button">Start over</button>
+                </section>
+            </div>
+
+            <aside class="guide-panel" aria-labelledby="guide-title">
+                <p class="eyebrow">How to explore</p>
+                <h2 id="guide-title">Try these steps</h2>
+                <ol>
+                    <li><strong>Check an empty form.</strong> The error summary links to every field that needs attention.</li>
+                    <li><strong>Fix an entry.</strong> Its error disappears when the value is valid.</li>
+                    <li><strong>Check again.</strong> A success state appears when all fields pass.</li>
+                </ol>
+                <div class="guide-detail">
+                    <h3>Designed for the keyboard</h3>
+                    <p>Labels, focus styles, and linked error messages help you move through the form without a mouse.</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span>Accessible Form Validation</span>
+            <span>A local form demo.</span>
+        </div>
+    </footer>
+</body>
+</html>

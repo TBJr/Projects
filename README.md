@@ -8,13 +8,17 @@ Open [the project gallery](index.html) to browse the demos in a browser.
 
 | Project | Description |
 | --- | --- |
+| [Accessible form validation](<Accessible form validation/>) | Checks a contact form locally with field errors, an error summary, and a success state. |
 | [Check internet connection](<Check internet connection/>) | Shows an online or offline status message after checking a remote endpoint. |
+| [Color contrast checker](<Color contrast checker/>) | Compares two colors against text and interface contrast thresholds with live previews. |
 | [Cookie consent box](<Cookie consent box/>) | Offers accept, reject, and custom preference choices, then remembers the decision. |
+| [CSV viewer](<CSV viewer/>) | Opens CSV or TSV files locally with separator controls, search, sorting, and pagination. |
 | [Detect browser](<Detect browser/>) | Identifies the browser and highlights its logo. |
 | [Expanding Cards](<Expanding Cards/>) | Expands an image panel when it is selected. |
 | [File upload with progress bar](<File upload with progress bar/>) | Uploads a file to a PHP handler and displays transfer progress. |
 | [Get user location](<Get user location/>) | Uses browser geolocation and reverse geocoding to show a location. |
 | [Image resizer and compressor](<Image resizer and compressor/>) | Resizes and converts images locally in the browser for download. |
+| [Password generator](<Password generator/>) | Generates custom or Apple-style passwords locally without repeating a result during a page visit. |
 | [Progress Steps](<Progress Steps/>) | Moves forward and backward through a visual progress indicator. |
 | [QR Code Generator](<QR Code Generator/>) | Generates a QR code image from entered text or a URL. |
 | [Responsive personal portfolio](<Responsive personal portfolio/>) | A responsive, multi-section portfolio with animated text and a carousel. |
